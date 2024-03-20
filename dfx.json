@@ -1,0 +1,14 @@
+{
+  "canisters": {
+    "spa": {
+      "frontend": {
+        "entrypoint": "build/index.html"
+      },
+      "source": ["build"],
+      "type": "assets",
+      "dependencies": []
+    }
+  },
+  "dfx": "0.15.3",
+  "version": 1
+}
