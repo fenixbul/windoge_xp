@@ -287,12 +287,16 @@ function WinXP() {
 
   useEffect(() => {
     if (showBootupAudio) {
-      const removeAudioTimeout = setTimeout(() => {
+      const addBootupAudioTimeout = setTimeout(() => {
+        setShowBootupAudio(true);
+      }, 1000);
+      const removeBootupAudioTimeout = setTimeout(() => {
         setShowBootupAudio(false);
-      }, 4000);
+      }, 6000);
 
       return () => {
-        clearTimeout(removeAudioTimeout);
+        clearTimeout(addBootupAudioTimeout);
+        clearTimeout(removeBootupAudioTimeout);
       };
     }
   }, [showBootupAudio]);

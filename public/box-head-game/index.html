@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxhead 2 players</title>
+</head>
+<body>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+  
+    window.addEventListener("DOMContentLoaded", () => {
+        let ruffle = window.RufflePlayer.newest();
+        let player = ruffle.createPlayer();
+        let container = document.getElementById("container");
+        player.style.width = "640px"; 
+        player.style.height = "480px";
+        container.appendChild(player);
+        player.load("/box-head-game/Boxhead_2Play.swf");
+    });
+  </script>
+  <script src="/js/ruffle/ruffle.js"></script>
+  <div id="container"></div>
+</body>
+</html>

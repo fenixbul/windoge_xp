@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import WinXP from 'WinXP';
-import Bootup from './Bootup'; // Assuming Bootup is in the same directory
+import WinXP from './WinXP'; // Adjust the path if needed
+import Bootup from './Bootup';
 
 const App = () => {
   const [isBooted, setIsBooted] = useState(false);
 
   useEffect(() => {
-    const booted = 'false';
-    setIsBooted(booted === 'true');
+    const hasBooted = sessionStorage.getItem('booted');
+    if (hasBooted === 'true') {
+      setIsBooted(true);
+    } else {
+      setIsBooted(false);
+    }
   }, []);
 
-  const handleBootComplete = () => setIsBooted(true);
+  const handleBootComplete = () => {
+    sessionStorage.setItem('booted', 'true');
+    setIsBooted(true);
+  };
 
   return isBooted ? <WinXP /> : <Bootup onBootComplete={handleBootComplete} />;
 };

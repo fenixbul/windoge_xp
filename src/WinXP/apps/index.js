@@ -19,11 +19,13 @@ import paint from 'assets/windowsIcons/680(16x16).png';
 import ICPCoinsIcon from 'assets/customIcons/ICPCoinsIcon.png';
 import ICPTokensIcon from 'assets/customIcons/ICPTokensIcon.png';
 import puzzleExpressIcon from 'assets/customIcons/puzzleExpressIcon.png';
+import Boxhead2PlayIcon from 'assets/customIcons/Boxhead2PlayIcon.png';
 import Pinball3dIcon from 'assets/customIcons/Pinball3dIcon.png';
 import ICPCoins from './ICPCoins';
 import ICPTokens from './ICPTokens';
 import PuzzleExpress from './PuzzleExpress';
 import Pinball from './Pinball';
+import Boxhead from './Boxhead';
 
 const gen = () => {
   let id = -1;
@@ -120,6 +122,13 @@ export const defaultAppState = [
 
 export const defaultIconState = [
   {
+    id: -1,
+    icon: Boxhead2PlayIcon,
+    title: 'Boxhead 2Play',
+    component: Boxhead,
+    isFocus: false,
+  },
+  {
     id: 0,
     icon: computerLarge,
     title: 'My Computer',
@@ -188,7 +197,7 @@ export const defaultIconState = [
     title: 'Pinball',
     component: Pinball,
     isFocus: false,
-  },
+  }
 ];
 
 export const appSettings = {
@@ -336,6 +345,25 @@ export const appSettings = {
     defaultSize: {
       width: 852,
       height: 666,
+    },
+    defaultOffset: {
+      x: 260,
+      y: 50,
+    },
+    resizable: false,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
+  Boxhead: {
+    header: {
+      icon: Boxhead2PlayIcon,
+      title: 'Boxhead 2Play',
+    },
+    component: Boxhead,
+    defaultSize: {
+      width: 775,
+      height: 607,
     },
     defaultOffset: {
       x: 260,
