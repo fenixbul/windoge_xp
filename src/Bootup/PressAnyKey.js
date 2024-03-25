@@ -34,11 +34,14 @@ const PressAnyKey = ({ onNext }) => {
   const [blinking, setBlinking] = useState(true);
 
   useEffect(() => {
+    const hasBooted = localStorage.getItem('booted');
     const handleKeyPress = () => {
       clearInterval(blinkingTimer);
       setBlinking(true);
       setTimeout(function() {
-        onNext(2);
+        // If has booted already, skip step 2 of boot process...
+        console.log(hasBooted);
+        onNext(hasBooted === 'true' ? 3 : 2);
       }, 800);
     };
     window.addEventListener('keydown', handleKeyPress);

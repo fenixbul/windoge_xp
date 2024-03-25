@@ -77,57 +77,57 @@ export const defaultAppState = [
   //   id: genId(),
   //   zIndex: genIndex(),
   // },
-  // {
-  //   component: Winamp,
-  //   header: {
-  //     title: 'Winamp',
-  //     icon: winamp,
-  //     invisible: true,
-  //   },
-  //   defaultSize: {
-  //     width: 0,
-  //     height: 0,
-  //   },
-  //   defaultOffset: {
-  //     x: 0,
-  //     y: 0,
-  //   },
-  //   resizable: false,
-  //   minimized: false,
-  //   maximized: false,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
   {
-    component: MyComputer,
+    component: Winamp,
     header: {
-      title: 'My Computer',
-      icon: computer,
+      title: 'Winamp',
+      icon: winamp,
+      invisible: true,
     },
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 0,
+      height: 0,
     },
     defaultOffset: {
-      x: 250,
-      y: 40,
+      x: window.innerWidth < 800 ? 130 : 200,
+      y: window.innerWidth < 800 ? 30 : 60,
     },
-    resizable: true,
+    resizable: false,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: false,
     id: genId(),
     zIndex: genIndex(),
   },
+  // {
+  //   component: MyComputer,
+  //   header: {
+  //     title: 'My Computer',
+  //     icon: computer,
+  //   },
+  //   defaultSize: {
+  //     width: 660,
+  //     height: 500,
+  //   },
+  //   defaultOffset: {
+  //     x: 250,
+  //     y: 40,
+  //   },
+  //   resizable: true,
+  //   minimized: false,
+  //   maximized: window.innerWidth < 800,
+  //   id: genId(),
+  //   zIndex: genIndex(),
+  // },
 ];
 
 export const defaultIconState = [
-  {
-    id: -1,
-    icon: Boxhead2PlayIcon,
-    title: 'Boxhead 2Play',
-    component: Boxhead,
-    isFocus: false,
-  },
+  // {
+  //   id: -1,
+  //   icon: Boxhead2PlayIcon,
+  //   title: 'Boxhead 2Play',
+  //   component: Boxhead,
+  //   isFocus: false,
+  // },
   {
     id: 0,
     icon: computerLarge,
@@ -135,20 +135,20 @@ export const defaultIconState = [
     component: MyComputer,
     isFocus: false,
   },
-  {
-    id: 1,
-    icon: ICPCoinsIcon,
-    title: 'ICPCoins',
-    component: ICPCoins,
-    isFocus: false,
-  },
-  {
-    id: 2,
-    icon: ICPTokensIcon,
-    title: 'ICPTokens',
-    component: ICPTokens,
-    isFocus: false,
-  },
+  // {
+  //   id: 1,
+  //   icon: ICPCoinsIcon,
+  //   title: 'ICPCoins',
+  //   component: ICPCoins,
+  //   isFocus: false,
+  // },
+  // {
+  //   id: 2,
+  //   icon: ICPTokensIcon,
+  //   title: 'ICPTokens',
+  //   component: ICPTokens,
+  //   isFocus: false,
+  // },
   {
     id: 3,
     icon: ie,
@@ -170,13 +170,13 @@ export const defaultIconState = [
     component: PuzzleExpress,
     isFocus: false,
   },
-  {
-    id: 6,
-    icon: mine,
-    title: 'Minesweeper',
-    component: Minesweeper,
-    isFocus: false,
-  },
+  // {
+  //   id: 6,
+  //   icon: mine,
+  //   title: 'Minesweeper',
+  //   component: Minesweeper,
+  //   isFocus: false,
+  // },
   {
     id: 7,
     icon: winamp,
@@ -191,13 +191,13 @@ export const defaultIconState = [
     component: Paint,
     isFocus: false,
   },
-  {
-    id: 9,
-    icon: Pinball3dIcon,
-    title: 'Pinball',
-    component: Pinball,
-    isFocus: false,
-  }
+  // {
+  //   id: 9,
+  //   icon: Pinball3dIcon,
+  //   title: 'Pinball',
+  //   component: Pinball,
+  //   isFocus: false,
+  // }
 ];
 
 export const appSettings = {
@@ -350,7 +350,7 @@ export const appSettings = {
       x: 260,
       y: 50,
     },
-    resizable: false,
+    resizable: true,
     minimized: false,
     maximized: window.innerWidth < 800,
     multiInstance: false,
@@ -369,7 +369,7 @@ export const appSettings = {
       x: 260,
       y: 50,
     },
-    resizable: false,
+    resizable: true,
     minimized: false,
     maximized: window.innerWidth < 800,
     multiInstance: false,

@@ -177,7 +177,8 @@ function WinXP() {
   const [state, dispatch] = useReducer(reducer, initState);
   const ref = useRef(null);
   const mouse = useMouse(ref);
-  const [showBootupAudio, setShowBootupAudio] = useState(true);
+  const [showStartupAudio, setShowStartupAudio] = useState(false);
+  const [triggerStartupAudio, setTriggerStartupAudio] = useState(true);
   const focusedAppId = getFocusedAppId();
   const onFocusApp = useCallback(id => {
     dispatch({ type: FOCUS_APP, payload: id });
@@ -241,10 +242,10 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
     else if (o === 'Notepad')
       dispatch({ type: ADD_APP, payload: appSettings.Notepad });
-    // else if (o === 'Winamp')
-    //   dispatch({ type: ADD_APP, payload: appSettings.Winamp });
-    // else if (o === 'Paint')
-    //   dispatch({ type: ADD_APP, payload: appSettings.Paint });
+    else if (o === 'Winamp')
+      dispatch({ type: ADD_APP, payload: appSettings.Winamp });
+    else if (o === 'Paint')
+      dispatch({ type: ADD_APP, payload: appSettings.Paint });
     else if (o === 'Log Off')
       dispatch({ type: POWER_OFF, payload: POWER_STATE.LOG_OFF });
     else if (o === 'Turn Off Computer')
@@ -286,20 +287,22 @@ function WinXP() {
   }
 
   useEffect(() => {
-    if (showBootupAudio) {
-      const addBootupAudioTimeout = setTimeout(() => {
-        setShowBootupAudio(true);
-      }, 1000);
-      const removeBootupAudioTimeout = setTimeout(() => {
-        setShowBootupAudio(false);
+    if (triggerStartupAudio) {
+      const addStartupAudioTimeout = setTimeout(() => {
+        setShowStartupAudio(true);
+      }, 500);
+      const removeStartupAudioTimeout = setTimeout(() => {
+        setShowStartupAudio(false);
       }, 6000);
 
+      setTriggerStartupAudio(false);
+
       return () => {
-        clearTimeout(addBootupAudioTimeout);
-        clearTimeout(removeBootupAudioTimeout);
+        clearTimeout(addStartupAudioTimeout);
+        clearTimeout(removeStartupAudioTimeout);
       };
     }
-  }, [showBootupAudio]);
+  }, [showStartupAudio]);
 
   return (
     <Container
@@ -341,7 +344,7 @@ function WinXP() {
           mode={state.powerState}
         />
       )}
-     {showBootupAudio && <audio src="/bootup/windows-xp-startup.mp3" preload="auto" loop={false} autoPlay />}
+     {showStartupAudio && <audio src="/bootup/windows-xp-startup.mp3" preload="auto" loop={false} autoPlay />}
     </Container>
   );
 }
