@@ -54,13 +54,20 @@ function Icon({
   id,
   component,
   measure,
+  link
 }) {
   const ref = useRef(null);
   function _onMouseDown() {
     onMouseDown(id);
   }
   function _onDoubleClick() {
-    onDoubleClick(component);
+    // If icon contains link open it in new window
+    // Otherwise: Load the related component
+    if(!link) {
+      onDoubleClick(component);
+    } else {
+      window.open(link, '_blank');
+    }
   }
   useEffect(() => {
     const target = ref.current;

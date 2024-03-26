@@ -21,6 +21,7 @@ import ICPTokensIcon from 'assets/customIcons/ICPTokensIcon.png';
 import puzzleExpressIcon from 'assets/customIcons/puzzleExpressIcon.png';
 import Boxhead2PlayIcon from 'assets/customIcons/Boxhead2PlayIcon.png';
 import Pinball3dIcon from 'assets/customIcons/Pinball3dIcon.png';
+import windogeIcon from 'assets/customIcons/windogeIcon.png';
 import ICPCoins from './ICPCoins';
 import ICPTokens from './ICPTokens';
 import PuzzleExpress from './PuzzleExpress';
@@ -193,6 +194,13 @@ export const defaultIconState = [
   },
   {
     id: 8,
+    icon: windogeIcon,
+    title: 'Buy XP',
+    isFocus: false,
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=wqihv-qyaaa-aaaak-afjoa-cai"
+  },
+  {
+    id: 9,
     icon: paintLarge,
     title: 'Paint',
     component: Paint,

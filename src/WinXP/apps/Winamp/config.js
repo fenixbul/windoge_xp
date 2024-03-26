@@ -12,11 +12,29 @@ export const initialTracks = [
       duration: 5.322286
   },
   {
+    url: '/music/Dr_Dre_ft_Snoop_Dogg_-_Nuthin_but_a_G_Thang.mp3',
+    duration: 235,
+    metaData: {
+      title: 'Nuthin\' But A G Thang',
+      artist: 'Dr. Dre ft. Snoop Dogg',
+      album,
+    },
+  },
+  {
     url: '/music/Dodgy Doge Daddy.mp3',
     duration: 148,
     metaData: {
       title: 'Dodgy Doge Daddy',
       artist: 'O.A.',
+      album,
+    },
+  },
+  {
+    url: '/music/BITCOIN PUMP IT UP.mp3',
+    duration: 148,
+    metaData: {
+      title: 'PUMP IT UP ↑',
+      artist: 'Bitcoin',
       album,
     },
   },
@@ -62,15 +80,6 @@ export const initialTracks = [
     metaData: {
       title: 'Smack My Bitch Up',
       artist: 'The Prodigy',
-      album,
-    },
-  },
-  {
-    url: '/music/Dr_Dre_ft_Snoop_Dogg_-_Nuthin_but_a_G_Thang.mp3',
-    duration: 235,
-    metaData: {
-      title: 'Nuthin\' But A G Thang',
-      artist: 'Dr. Dre ft. Snoop Dogg',
       album,
     },
   },
