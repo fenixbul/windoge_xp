@@ -12,6 +12,11 @@ function Winamp({ onClose, onMinimize }) {
     }
     webamp.current = new Webamp({
       initialTracks,
+      __initialWindowLayout: {
+          main: { position: { x: 0, y: 0 } },
+          equalizer: { position: { x: 0, y: 116 } },
+          playlist: { position: { x: 0, y: 232 }, size: [0, 2] },
+      }
     });
     webamp.current.renderWhenReady(target).then(() => {
       target.appendChild(document.querySelector('#webamp'));

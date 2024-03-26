@@ -6,8 +6,8 @@ const PinballWrap = styled.div`
   align-items: center;
   overflow: hidden;
   iframe {
-    scale: 1.3;
-    margin-top: 70px;
+    scale: 1.2;
+    margin-top: 50px;
   }
 `;
 

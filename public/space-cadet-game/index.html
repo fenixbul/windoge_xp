@@ -20,14 +20,62 @@
                display: flex;
                justify-content: center;
                align-items: center;
-               font-size: 24px;
+               font-size: 18px;
                z-index: 1000;
+
+               -webkit-user-select: none; /* Safari */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE 10+ */
+                user-select: none; /* Standard syntax */
+            }
+            .controls-wrap {
+                background: rgba(0, 0, 0, 0.8);
+                padding: 25px 40px;
+                border: 2px solid white;
+            }
+            .controls-wrap span {
+                width: 110px;
+                display:inline-block;
+                text-align: center;
+                margin-left: 30px;
+            }
+            .controls-wrap .keyboard-btn-wrap em {
+                background-color: #eee;
+                border-top: 0.2em solid #ccc;
+                border-right: 0.3em solid #aaa;
+                border-bottom: 0.35em solid #888;
+                border-left: 0.25em solid #bbb;
+                padding: 0 0.4em 0.1em 0.3em;
+                white-space: nowrap;
+                line-height: 2.6em !important;
+                color: #000;
+                font-style: normal;
+            }
+            .controls-wrap .keyboard-btn-wrap {
+                width: 50px;
+                display: inline-block;
+                text-align: center;
             }
         </style>
     </head>
 
     <body>
-        <div id="startOverlay">Click to start</div>
+        <div id="startOverlay">
+            <div>
+                <p style="text-align: center; font-size: 12px;" class="controls-wrap">
+                    <span style="margin-bottom: 20px; font-size: 14px; width: 100%; text-align: center; margin-left: 0;">Keyboard Controls</span> <br>
+                    <span class="keyboard-btn-wrap"><em>Z</em></span> <span>Left Flipper</span><br>
+                    <span class="keyboard-btn-wrap"><em>/</em></span> <span>Right Flipper</span><br>
+                    <span class="keyboard-btn-wrap"><em>X</em></span> <span>Left table bump</span><br>
+                    <span class="keyboard-btn-wrap"><em>.</em></span> <span>Right table bump</span><br>
+                    <span class="keyboard-btn-wrap"><em>↑</em></span> <span>Bottom table bump</span><br>
+                    <span class="keyboard-btn-wrap"><em>M</em></span> <span>Sound</span><br>
+                    <span class="keyboard-btn-wrap"><em>Space</em></span> <span>Plunger</span><br>
+                </p>
+                    
+                <p style="margin-top: 20px; padding-bottom: 20px; text-transform: uppercase; letter-spacing: 3px;">Click to start</p>   
+            </div> 
+        </div>
         <div class="active window">
             <style>
                 #windogePinballoverlay {
@@ -78,6 +126,38 @@
          document.addEventListener('keydown', removeOverlayAndInitialize);
          document.addEventListener('click', removeOverlayAndInitialize);
      </script>
+     <script>
+        var isMuted = false;
+        // Function to toggle mute/unmute
+        function toggleMute() {
+            // Get audio context from canvas
+            let SDL2 = Module["SDL2"];
+
+            console.log(SDL2)
+            console.log(isMuted)
+
+            isMuted = !isMuted;
+            if (SDL2.audio.scriptProcessorNode) {
+                if (isMuted) {
+                    // Mute the audio by disconnecting the script processor node
+                    SDL2.audio.scriptProcessorNode.disconnect();
+                } else {
+                    // Unmute the audio by reconnecting the script processor node
+                    SDL2.audio.scriptProcessorNode.connect(SDL2.audioContext.destination);
+                }
+            }
+        }
+
+        // Function to handle key press events
+        function handleKeyPress2(event) {
+            // Check if the key pressed is 'm'
+            if (event.key === 'm') {
+                toggleMute();
+            }
+        }
+
+        document.addEventListener('keypress', handleKeyPress2);
+    </script>
         <script async src=SpaceCadetPinball.js></script>
     </body>
 

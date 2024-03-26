@@ -170,6 +170,13 @@ export const defaultIconState = [
     component: PuzzleExpress,
     isFocus: false,
   },
+  {
+    id: 6,
+    icon: Pinball3dIcon,
+    title: 'Pinball',
+    component: Pinball,
+    isFocus: false,
+  },
   // {
   //   id: 6,
   //   icon: mine,
@@ -191,13 +198,6 @@ export const defaultIconState = [
     component: Paint,
     isFocus: false,
   },
-  // {
-  //   id: 9,
-  //   icon: Pinball3dIcon,
-  //   title: 'Pinball',
-  //   component: Pinball,
-  //   isFocus: false,
-  // }
 ];
 
 export const appSettings = {
@@ -381,8 +381,8 @@ export const appSettings = {
     },
     component: Pinball,
     defaultSize: {
-      width: 800,
-      height: 600,
+      width: 742,
+      height: 577,
     },
     defaultOffset: {
       x: 260,
