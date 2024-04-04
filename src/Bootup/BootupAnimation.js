@@ -23,7 +23,7 @@ const BootupScreen = styled.div`
   .loading-container {
     display: block;
     height: 46px;
-    width: 380px;
+    max-width: 380px;
     border: 3px solid #a8a8a8;
     border-radius: 12px;
     scale: 0.5;
@@ -31,7 +31,8 @@ const BootupScreen = styled.div`
     position: relative;
   }
   .logo {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin-bottom: 50px;
   }
   .loading-wrap {
@@ -59,6 +60,7 @@ const BootupScreen = styled.div`
   }
 
   .animation-wrap {
+    padding: 10px 40px;
     text-align: center;
 
     animation: ${fadeIn} 2.8s ease-out forwards;

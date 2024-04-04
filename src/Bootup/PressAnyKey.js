@@ -40,7 +40,6 @@ const PressAnyKey = ({ onNext }) => {
       setBlinking(true);
       setTimeout(function() {
         // If has booted already, skip step 2 of boot process...
-        console.log(hasBooted);
         onNext(hasBooted === 'true' ? 3 : 2);
       }, 800);
     };

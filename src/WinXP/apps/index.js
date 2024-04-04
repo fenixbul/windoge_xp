@@ -58,26 +58,26 @@ export const defaultAppState = [
   //   id: genId(),
   //   zIndex: genIndex(),
   // },
-  // {
-  //   component: Minesweeper,
-  //   header: {
-  //     title: 'Minesweeper',
-  //     icon: mine,
-  //   },
-  //   defaultSize: {
-  //     width: 0,
-  //     height: 0,
-  //   },
-  //   defaultOffset: {
-  //     x: 180,
-  //     y: 170,
-  //   },
-  //   resizable: false,
-  //   minimized: false,
-  //   maximized: false,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
+  {
+    component: Minesweeper,
+    header: {
+      title: 'Minesweeper',
+      icon: mine,
+    },
+    defaultSize: {
+      width: 0,
+      height: 0,
+    },
+    defaultOffset: {
+      x: window.innerWidth < 800 ? 130 : 200,
+      y: window.innerWidth < 800 ? 30 : 60,
+    },
+    resizable: false,
+    minimized: false,
+    maximized: false,
+    id: genId(),
+    zIndex: genIndex(),
+  },
   {
     component: Winamp,
     header: {
@@ -90,11 +90,11 @@ export const defaultAppState = [
       height: 0,
     },
     defaultOffset: {
-      x: window.innerWidth < 800 ? 130 : 200,
+      x: window.innerWidth < 800 ? 130 : 300,
       y: window.innerWidth < 800 ? 30 : 60,
     },
     resizable: false,
-    minimized: false,
+    minimized: window.innerWidth < 800 ? true : false,
     maximized: false,
     id: genId(),
     zIndex: genIndex(),
@@ -166,9 +166,9 @@ export const defaultIconState = [
   },
   {
     id: 5,
-    icon: puzzleExpressIcon,
-    title: 'PuzzleExpress',
-    component: PuzzleExpress,
+    icon: mine,
+    title: 'Minesweeper',
+    component: Minesweeper,
     isFocus: false,
   },
   {
@@ -178,13 +178,6 @@ export const defaultIconState = [
     component: Pinball,
     isFocus: false,
   },
-  // {
-  //   id: 6,
-  //   icon: mine,
-  //   title: 'Minesweeper',
-  //   component: Minesweeper,
-  //   isFocus: false,
-  // },
   {
     id: 7,
     icon: winamp,
@@ -204,6 +197,13 @@ export const defaultIconState = [
     icon: paintLarge,
     title: 'Paint',
     component: Paint,
+    isFocus: false,
+  },
+  {
+    id: 10,
+    icon: puzzleExpressIcon,
+    title: 'PuzzleExpress',
+    component: PuzzleExpress,
     isFocus: false,
   },
 ];

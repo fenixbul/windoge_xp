@@ -10,6 +10,11 @@ const LoadingScreenWrap = styled.div`
   width: 100%;
   color: #b0b0bf;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    .header-text > div:first-child {
+      margin-bottom: 20px;
+    }
+  }
   .header {
     padding-top: 16px;
     padding-left: 16px;
@@ -81,6 +86,7 @@ const LoadingScreenWrap = styled.div`
   }
 
   .loading-body {
+    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +189,7 @@ const LoadingScreen = ({ onNext }) => {
       <div className="header">Windoge XP Professional Setup</div>
       <div className="loading-body">
         <div>
-          <p>
+          <p className="header-text">
             <div>Please wait while Setup copies files.</div>
             <div>This might take several seconds to complete.</div>
           </p>

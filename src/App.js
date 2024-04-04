@@ -3,7 +3,7 @@ import WinXP from './WinXP'; // Adjust the path if needed
 import Bootup from './Bootup';
 
 const App = () => {
-  const [isBooted, setIsBooted] = useState(true);
+  const [isBooted, setIsBooted] = useState(false);
 
   useEffect(() => {
     const hasBooted = isBooted;

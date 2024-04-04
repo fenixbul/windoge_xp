@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import { isMobile } from 'react-device-detect';
 
 function Icons({
   icons,
@@ -57,8 +58,14 @@ function Icon({
   link
 }) {
   const ref = useRef(null);
+  
   function _onMouseDown() {
-    onMouseDown(id);
+    // If mobile on mouse down direct trigger double click and skip icon selection...
+    if(isMobile) {
+      _onDoubleClick();
+    } else {
+      onMouseDown(id);
+    }
   }
   function _onDoubleClick() {
     // If icon contains link open it in new window

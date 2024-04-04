@@ -7,6 +7,7 @@
   "dependencies": {
     "lodash.samplesize": "^4.2.0",
     "react": "^16.8.6",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^16.8.6",
     "react-scripts": "^5.0.1",
     "react-use": "^7.0.1",

@@ -194,6 +194,41 @@ function MineSweeperView({
       default:
     }
   }
+  function onTouchStartCeils(e) {
+      // Get the parent element containing the elements you're interested in
+      const parentElement = e.currentTarget;
+      
+      // Find the element that matches the selector '.mine__ceil' among the target's ancestors
+      const targetCeil = e.target.closest('.mine__ceil');
+      
+      // If the targetCeil is found and it's a child of parentElement, proceed
+      if (targetCeil && parentElement.contains(targetCeil)) {
+          const index = Array.prototype.indexOf.call(
+              parentElement.children,
+              targetCeil
+          );
+
+          // For touch events, there's no concept of button, so we need to handle the behavior differently
+          if (index !== -1) {
+              // For single tap, we can consider it as 'left-click'
+              setOpenBehavior({
+                  index,
+                  behavior: 'single',
+              });
+          }
+      }
+  }
+  
+  function onTouchMoveCeils(e) {
+    onMouseOverCeils(e.touches[0]);
+  }
+
+  function onTouchEndCeils(e) {
+    onMouseUpCeils(e.touches[0]);
+  }
+  function onTouchStartContent(e) {
+    onMouseDownContent(e.touches[0]);
+  }
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp);
     return () => {
@@ -236,6 +271,9 @@ function MineSweeperView({
           onMouseDown={onMouseDownCeils}
           onMouseOver={onMouseOverCeils}
           onMouseUp={onMouseUpCeils}
+          onTouchStart={onTouchStartCeils}
+          onTouchMove={onTouchMoveCeils}
+          onTouchEnd={onTouchEndCeils}
         >
           <Ceils ceils={ceils} />
         </div>

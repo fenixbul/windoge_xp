@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const PinballWrap = styled.div`
@@ -11,14 +12,20 @@ const PinballWrap = styled.div`
   }
 `;
 
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function Pinball({ onClose, onMinimize }) {
+  const height = isMobileDevice() ? "580px" : "500px";
+
   return (
     <PinballWrap>
       <iframe
         title="Pinball"
         frameBorder="0" // Note the camelCase here
         width="100%"
-        height="500px"
+        height={height}
         src="/space-cadet-game/index.html"
       ></iframe>
     </PinballWrap>

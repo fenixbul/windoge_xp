@@ -13,6 +13,12 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Windoge XP - dApp</title>
+    <style>
+      /* Style to hide the preloaded image */
+      .preloadedImage {
+          display: none;
+      }
+  </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -27,5 +33,22 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+        // Function to preload an image
+        function preloadImage(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = url;
+                img.className = 'preloadedImage'
+            });
+        }
+        preloadImage('/bootup/logo.png').then((image) => {document.body.appendChild(image);})
+        preloadImage('/bootup/gradient1.png').then((image) => {document.body.appendChild(image);})
+        preloadImage('/bootup/gradient1.png').then((image) => {document.body.appendChild(image);})
+        preloadImage('/bootup/gradient1.png').then((image) => {document.body.appendChild(image);})
+        preloadImage('/wallpapers/green-wallpaper.jpeg').then((image) => {document.body.appendChild(image);})
+    </script>
   </body>
 </html>
