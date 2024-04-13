@@ -11,6 +11,9 @@ const fadeIn = keyframes`
 `;
 
 const BootupScreen = styled.div`
+  position: absolute:
+  left: 0;
+  top: 0;
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -20,6 +23,11 @@ const BootupScreen = styled.div`
   text-align: left;
   padding: 16px;
   animation: ${fadeIn} 1s ease-out forwards;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
 
   h1 {
     font-size: 16px;

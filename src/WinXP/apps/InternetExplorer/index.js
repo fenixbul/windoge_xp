@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { WindowDropDowns, Google } from 'components';
@@ -26,6 +26,7 @@ function InternetExplorer({ onClose }) {
   const [state, setState] = useState({
     route: 'main',
     query: '',
+    iframeWidth: 800, // Default width
   });
   function onSearch(str) {
     if (str.length) {
@@ -53,6 +54,24 @@ function InternetExplorer({ onClose }) {
       default:
     }
   }
+  useEffect(() => {
+    const handleResize = () => {
+      const newWidth = window.innerWidth < 800 ? window.innerWidth : 800;
+      setState(prevState => ({
+        ...prevState,
+        iframeWidth: newWidth,
+      }));
+    };
+
+    handleResize(); // Initial call to set width
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const { iframeWidth } = state;
+  
   return (
     <Div>
       <section className="ie__toolbar">
@@ -167,10 +186,9 @@ function InternetExplorer({ onClose }) {
         <div className="ie__content__inner">
           <iframe
             src="https://www.google.com/webhp?igu=1"
-            title="ICP Swap Details"
-            width="100%"
-            height="100%"
-            style={{ border: 'none' }}
+            title="Google"
+            width={iframeWidth}
+            height="600"
           ></iframe>
         </div>
       </div>

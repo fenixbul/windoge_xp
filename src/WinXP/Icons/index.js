@@ -105,14 +105,28 @@ const IconsContainer = styled.div`
   position: absolute;
   margin-top: 30px;
   margin-left: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  height: 100vh;
+  padding-bottom: 40px;
+
+  @media (max-width: 800px) {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 `;
 
 const StyledIcon = styled(Icon)`
   width: 70px;
+  height: 55px;
   margin-bottom: 30px;
+  margin-right: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 800px) {
+    margin-right: 15px;
+  }
   &__text__container {
     width: 100%;
     font-size: 10px;

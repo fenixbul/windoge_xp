@@ -89,12 +89,12 @@ const BootupAnimation = ({ onBootComplete }) => {
     }, 70); // Adjust interval duration as needed
 
     const timer = setTimeout(() => {
-      clearInterval(interval);
+    clearInterval(interval);
       if (onBootComplete) {
         localStorage.setItem('booted', 'true');
         onBootComplete();
       }
-    }, 5000); // Adjust time for bootup animation as needed
+    }, 8 * 1000); // Adjust time for bootup animation as needed
 
     return () => {
       clearInterval(interval);

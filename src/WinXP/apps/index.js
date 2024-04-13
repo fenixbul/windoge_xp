@@ -22,11 +22,16 @@ import puzzleExpressIcon from 'assets/customIcons/puzzleExpressIcon.png';
 import Boxhead2PlayIcon from 'assets/customIcons/Boxhead2PlayIcon.png';
 import Pinball3dIcon from 'assets/customIcons/Pinball3dIcon.png';
 import windogeIcon from 'assets/customIcons/windogeIcon.png';
+import ICPWhaleNewsIcon from 'assets/customIcons/ICPWhaleNewsIcon.jpg';
+import taggrIcon from 'assets/customIcons/taggrIcon.png';
+import openChatIcon from 'assets/customIcons/openChatIcon.svg';
+import twitterIcon from 'assets/customIcons/twitterIcon.png';
 import ICPCoins from './ICPCoins';
 import ICPTokens from './ICPTokens';
 import PuzzleExpress from './PuzzleExpress';
 import Pinball from './Pinball';
 import Boxhead from './Boxhead';
+import Taggr from './Taggr';
 
 const gen = () => {
   let id = -1;
@@ -58,47 +63,47 @@ export const defaultAppState = [
   //   id: genId(),
   //   zIndex: genIndex(),
   // },
-  {
-    component: Minesweeper,
-    header: {
-      title: 'Minesweeper',
-      icon: mine,
-    },
-    defaultSize: {
-      width: 0,
-      height: 0,
-    },
-    defaultOffset: {
-      x: window.innerWidth < 800 ? 130 : 200,
-      y: window.innerWidth < 800 ? 30 : 60,
-    },
-    resizable: false,
-    minimized: false,
-    maximized: false,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
-    component: Winamp,
-    header: {
-      title: 'Winamp',
-      icon: winamp,
-      invisible: true,
-    },
-    defaultSize: {
-      width: 0,
-      height: 0,
-    },
-    defaultOffset: {
-      x: window.innerWidth < 800 ? 130 : 300,
-      y: window.innerWidth < 800 ? 30 : 60,
-    },
-    resizable: false,
-    minimized: window.innerWidth < 800 ? true : false,
-    maximized: false,
-    id: genId(),
-    zIndex: genIndex(),
-  },
+  // {
+  //   component: Minesweeper,
+  //   header: {
+  //     title: 'Minesweeper',
+  //     icon: mine,
+  //   },
+  //   defaultSize: {
+  //     width: 0,
+  //     height: 0,
+  //   },
+  //   defaultOffset: {
+  //     x: window.innerWidth < 800 ? 130 : 200,
+  //     y: window.innerWidth < 800 ? 30 : 60,
+  //   },
+  //   resizable: false,
+  //   minimized: false,
+  //   maximized: false,
+  //   id: genId(),
+  //   zIndex: genIndex(),
+  // },
+  // {
+  //   component: Winamp,
+  //   header: {
+  //     title: 'Winamp',
+  //     icon: winamp,
+  //     invisible: true,
+  //   },
+  //   defaultSize: {
+  //     width: 0,
+  //     height: 0,
+  //   },
+  //   defaultOffset: {
+  //     x: 0,
+  //     y: 0
+  //   },
+  //   resizable: false,
+  //   minimized: false,
+  //   maximized: false,
+  //   id: genId(),
+  //   zIndex: genIndex(),
+  // },
   // {
   //   component: MyComputer,
   //   header: {
@@ -121,7 +126,9 @@ export const defaultAppState = [
   // },
 ];
 
-export const defaultIconState = [
+const defaultIconState = [];
+
+defaultIconState.push(
   // {
   //   id: -1,
   //   icon: Boxhead2PlayIcon,
@@ -141,13 +148,6 @@ export const defaultIconState = [
   //   icon: ICPCoinsIcon,
   //   title: 'ICPCoins',
   //   component: ICPCoins,
-  //   isFocus: false,
-  // },
-  // {
-  //   id: 2,
-  //   icon: ICPTokensIcon,
-  //   title: 'ICPTokens',
-  //   component: ICPTokens,
   //   isFocus: false,
   // },
   {
@@ -201,12 +201,56 @@ export const defaultIconState = [
   },
   {
     id: 10,
+    icon: openChatIcon,
+    title: 'OpenChat',
+    isFocus: false,
+    link: "https://oc.app/community/myvs2-2yaaa-aaaar-a26tq-cai"
+  },
+  {
+    id: 11,
+    icon: taggrIcon,
+    title: 'TAGGR',
+    isFocus: false,
+    component: Taggr
+  },
+  {
+    id: 12,
+    icon: twitterIcon,
+    title: 'Twitter',
+    isFocus: false,
+    link: "https://twitter.com/_WindogeXP"
+  },
+  {
+    id: 13,
+    icon: ICPTokensIcon,
+    title: 'ICPTokens',
+    component: ICPTokens,
+    isFocus: false,
+  },
+  {
+    id: 14,
+    icon: ICPWhaleNewsIcon,
+    title: 'ICP Whale News',
+    isFocus: false,
+    link: "https://twitter.com/icpwhalenews"
+  },
+);
+
+// Find the index of the "Pinball" item
+const pinballIndex = defaultIconState.findIndex(item => item.title === 'Pinball');
+
+// If window width is greater than or equal to 800 pixels, insert "PuzzleExpress" after "Pinball"
+if (window.innerWidth >= 800 && pinballIndex !== -1) {
+  defaultIconState.splice(pinballIndex + 1, 0, {
+    id: 15,
     icon: puzzleExpressIcon,
     title: 'PuzzleExpress',
     component: PuzzleExpress,
     isFocus: false,
-  },
-];
+  });
+}
+
+export { defaultIconState};
 
 export const appSettings = {
   'Internet Explorer': {
@@ -216,11 +260,11 @@ export const appSettings = {
     },
     component: InternetExplorer,
     defaultSize: {
-      width: 700,
-      height: 500,
+      width: 800,
+      height: 600,
     },
     defaultOffset: {
-      x: 140,
+      x: document.body.clientWidth / 2 - 400,
       y: 30,
     },
     resizable: true,
@@ -239,7 +283,7 @@ export const appSettings = {
       height: 0,
     },
     defaultOffset: {
-      x: 190,
+      x: document.body.clientWidth / 2 - 85,
       y: 180,
     },
     resizable: false,
@@ -313,8 +357,8 @@ export const appSettings = {
     },
     component: Notepad,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 500,
+      height: 400,
     },
     defaultOffset: {
       x: 270,
@@ -332,16 +376,16 @@ export const appSettings = {
     },
     component: ICPTokens,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 900,
+      height: 700,
     },
     defaultOffset: {
-      x: 260,
+      x: document.body.clientWidth / 2 - 450,
       y: 50,
     },
     resizable: true,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: window.innerWidth < 1000 || window.innerHeight < 800,
     multiInstance: false,
   },
   'Puzzle Express': {
@@ -393,12 +437,31 @@ export const appSettings = {
       height: 577,
     },
     defaultOffset: {
-      x: 260,
+      x: document.body.clientWidth / 2 - 380,
       y: 50,
     },
     resizable: false,
     minimized: false,
     maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
+  Taggr: {
+    header: {
+      icon: taggrIcon,
+      title: 'TAGGR',
+    },
+    component: Taggr,
+    defaultSize: {
+      width: document.body.clientWidth / 2,
+      height: 600,
+    },
+    defaultOffset: {
+      x: 0,
+      y: 0,
+    },
+    resizable: !(window.innerWidth < 800),
+    minimized: false,
+    maximized: true,
     multiInstance: false,
   },
   Notepad: {
@@ -408,8 +471,8 @@ export const appSettings = {
     },
     component: Notepad,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 500,
+      height: 400,
     },
     defaultOffset: {
       x: 270,

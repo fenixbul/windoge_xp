@@ -20,7 +20,27 @@ function Winamp({ onClose, onMinimize }) {
     });
     webamp.current.renderWhenReady(target).then(() => {
       target.appendChild(document.querySelector('#webamp'));
+
+      let initialWinampXPosition = 0;
+      let initialWinampYPosition = 0;
+
+      if(window.innerWidth < 800) {
+        initialWinampXPosition = (document.body.clientWidth) - 295;
+        initialWinampYPosition = (document.body.clientHeight) - 485;
+      } else {
+        initialWinampXPosition = (document.body.clientWidth / 2) - 137;
+      }
+      
+      webamp.current.store.dispatch({
+        type: 'UPDATE_WINDOW_POSITIONS',
+        positions: {
+          main: { x: initialWinampXPosition, y: 30 + initialWinampYPosition },
+          equalizer: { x: initialWinampXPosition, y: 146 + initialWinampYPosition },
+          playlist: { x: initialWinampXPosition, y: 262 + initialWinampYPosition }
+        }
+      });
     });
+
     return () => {
       webamp.current.dispose();
       webamp.current = null;

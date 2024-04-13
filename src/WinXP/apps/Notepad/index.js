@@ -7,14 +7,13 @@ import dropDownData from './dropDownData';
 export default function Notepad({ onClose }) {
   const [docText, setDocText] = useState(`Roadmap:
 
-1. ICPSwap Launch: 27/01/2024 - Status: Completed
-2. ICPSwap Listing - Status: Completed
-3. PLUG Listing: Status Completed
-4. Coingecko Listing: Status Pending
-5. Coinmarketcap Listing: Status: To Be Completed
-6. Openchat Integration: Status: To Be Completed
-7. Website Fully Onchain: Status: To Be Completed
-
+1. ICPSwap Launch: 27/01/2024 - Completed ✅
+2. ICPSwap Listing - Completed ✅
+3. PLUG Listing: Completed ✅
+4. Website Fully Onchain: Completed ✅
+4. Coingecko Listing: Pending
+5. Coinmarketcap Listing: Pending
+6. Openchat Integration: To Be Completed
 
 Tokenomics:
 

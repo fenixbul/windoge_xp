@@ -13,7 +13,7 @@ function ICPTokens({ onClose, onMinimize }) {
       frameBorder="0" // Note the camelCase here
       width="100%"
       height="100%"
-      src="https://icptokens.net/"
+      src="https://icptokens.net/token/wqihv-qyaaa-aaaak-afjoa-cai"
     ></iframe>
   );
 }
