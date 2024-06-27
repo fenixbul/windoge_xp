@@ -1,5 +1,7 @@
 # Windoge XP (On-Chain OS) + Token
 
+![Cover Image](public/cover.png)
+
 ## Overview
 Windoge XP is an on-chain operating system built on the Internet Computer Network, offering a unique blend of nostalgia and modern blockchain technology. Our platform is designed to provide users with a seamless and interactive experience, integrating various dApps, games, and essential tools.
 
