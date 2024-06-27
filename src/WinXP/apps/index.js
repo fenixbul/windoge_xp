@@ -22,7 +22,8 @@ import puzzleExpressIcon from 'assets/customIcons/puzzleExpressIcon.png';
 import Boxhead2PlayIcon from 'assets/customIcons/Boxhead2PlayIcon.png';
 import Pinball3dIcon from 'assets/customIcons/Pinball3dIcon.png';
 import windogeIcon from 'assets/customIcons/windogeIcon.png';
-import ICPWhaleNewsIcon from 'assets/customIcons/ICPWhaleNewsIcon.jpg';
+import ghostIcon from 'assets/customIcons/ghostIcon.png';
+import exeIcon from 'assets/customIcons/exe.jpg';
 import taggrIcon from 'assets/customIcons/taggrIcon.png';
 import openChatIcon from 'assets/customIcons/openChatIcon.svg';
 import twitterIcon from 'assets/customIcons/twitterIcon.png';
@@ -83,27 +84,27 @@ export const defaultAppState = [
   //   id: genId(),
   //   zIndex: genIndex(),
   // },
-  // {
-  //   component: Winamp,
-  //   header: {
-  //     title: 'Winamp',
-  //     icon: winamp,
-  //     invisible: true,
-  //   },
-  //   defaultSize: {
-  //     width: 0,
-  //     height: 0,
-  //   },
-  //   defaultOffset: {
-  //     x: 0,
-  //     y: 0
-  //   },
-  //   resizable: false,
-  //   minimized: false,
-  //   maximized: false,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
+  {
+    component: Winamp,
+    header: {
+      title: 'Winamp',
+      icon: winamp,
+      invisible: true,
+    },
+    defaultSize: {
+      width: 0,
+      height: 0,
+    },
+    defaultOffset: {
+      x: 0,
+      y: 0
+    },
+    resizable: false,
+    minimized: window.innerWidth < 800,
+    maximized: false,
+    id: genId(),
+    zIndex: genIndex(),
+  },
   // {
   //   component: MyComputer,
   //   header: {
@@ -129,13 +130,6 @@ export const defaultAppState = [
 const defaultIconState = [];
 
 defaultIconState.push(
-  // {
-  //   id: -1,
-  //   icon: Boxhead2PlayIcon,
-  //   title: 'Boxhead 2Play',
-  //   component: Boxhead,
-  //   isFocus: false,
-  // },
   {
     id: 0,
     icon: computerLarge,
@@ -215,24 +209,31 @@ defaultIconState.push(
   },
   {
     id: 12,
+    icon: ghostIcon,
+    title: 'Buy GHOST',
+    isFocus: false,
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=4c4fd-caaaa-aaaaq-aaa3a-cai"
+  },
+  {
+    id: 13,
+    icon: ICPTokensIcon,
+    title: 'ICP Tokens',
+    component: ICPTokens,
+    isFocus: false,
+  },
+  {
+    id: 14,
     icon: twitterIcon,
     title: 'Twitter',
     isFocus: false,
     link: "https://twitter.com/_WindogeXP"
   },
   {
-    id: 13,
-    icon: ICPTokensIcon,
-    title: 'ICPTokens',
-    component: ICPTokens,
+    id: 15,
+    icon: exeIcon,
+    title: 'Buy EXE',
     isFocus: false,
-  },
-  {
-    id: 14,
-    icon: ICPWhaleNewsIcon,
-    title: 'ICP Whale News',
-    isFocus: false,
-    link: "https://twitter.com/icpwhalenews"
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=rh2pm-ryaaa-aaaan-qeniq-cai"
   },
 );
 
@@ -242,7 +243,15 @@ const pinballIndex = defaultIconState.findIndex(item => item.title === 'Pinball'
 // If window width is greater than or equal to 800 pixels, insert "PuzzleExpress" after "Pinball"
 if (window.innerWidth >= 800 && pinballIndex !== -1) {
   defaultIconState.splice(pinballIndex + 1, 0, {
-    id: 15,
+    id: -1,
+    icon: Boxhead2PlayIcon,
+    title: 'Boxhead 2Play',
+    component: Boxhead,
+    isFocus: false,
+  },);
+
+  defaultIconState.splice(pinballIndex + 1, 0, {
+    id: 16,
     icon: puzzleExpressIcon,
     title: 'PuzzleExpress',
     component: PuzzleExpress,
@@ -350,25 +359,6 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
-  Notepad: {
-    header: {
-      icon: notepad,
-      title: 'Roadmap - Notepad',
-    },
-    component: Notepad,
-    defaultSize: {
-      width: 500,
-      height: 400,
-    },
-    defaultOffset: {
-      x: 270,
-      y: 60,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    multiInstance: true,
-  },
   'ICP Tokens': {
     header: {
       icon: ICPTokensIcon,
@@ -418,7 +408,7 @@ export const appSettings = {
       height: 607,
     },
     defaultOffset: {
-      x: 260,
+      x: document.body.clientWidth / 2 - 385,
       y: 50,
     },
     resizable: true,

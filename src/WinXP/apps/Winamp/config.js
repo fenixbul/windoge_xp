@@ -5,20 +5,12 @@ const album = 'Crypto Music';
 export const initialTracks = [
   {
       metaData: {
-          artist: "DJ Mike Llama",
-          title: "Llama Whippin' Intro"
+          artist: "Cassius Cuvee",
+          title: "HODL ICP",
+          album,
       },
-      url: "/music/llama.mp3",
-      duration: 5.32
-  },
-  {
-    url: '/music/Dr_Dre_ft_Snoop_Dogg_-_Nuthin_but_a_G_Thang.mp3',
-    duration: 235.26,
-    metaData: {
-      title: 'Nuthin\' But A G Thang',
-      artist: 'Dr. Dre ft. Snoop Dogg',
-      album,
-    },
+      url: "/music/Cassius Cuvee - HODL ICP.mp3",
+      duration: 145.48
   },
   {
     url: '/music/Dodgy Doge Daddy.mp3',
@@ -29,6 +21,24 @@ export const initialTracks = [
       album,
     },
   },
+  {
+    url: '/music/Dr_Dre_ft_Snoop_Dogg_-_Nuthin_but_a_G_Thang.mp3',
+    duration: 235.26,
+    metaData: {
+      title: 'Nuthin\' But A G Thang',
+      artist: 'Dr. Dre ft. Snoop Dogg',
+      album,
+    },
+  },
+  // {
+  //     metaData: {
+  //         artist: "DJ Mike Llama",
+  //         title: "Llama Whippin' Intro",
+  //         album,
+  //     },
+  //     url: "/music/llama.mp3",
+  //     duration: 5.32
+  // },
   {
     url: '/music/BITCOIN PUMP IT UP.mp3',
     duration: 165.29,
