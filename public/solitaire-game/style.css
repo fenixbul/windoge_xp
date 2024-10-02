@@ -1,0 +1,29 @@
+body {
+  background: green !important;
+}
+.window {
+  margin: 0 !important;
+}
+.window__heading {
+  display: none;
+}
+
+.window__inner {
+  background: green !important;
+  border: none !important;
+}
+
+.window__content, .window, .window__content-inner {
+  border: none !important;
+}
+.solitaire {
+  width: 670px !important;
+}
+
+.window__actions {
+  background: linear-gradient(to right, rgb(237, 237, 229) 0%, rgb(237, 232, 205) 100%);
+}
+
+.window__actions > button {
+  font-size: 12px;
+}

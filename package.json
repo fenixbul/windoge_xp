@@ -6,6 +6,7 @@
   "homepage": "https://windogexp.net",
   "dependencies": {
     "lodash.samplesize": "^4.2.0",
+    "nostalgist": "^0.10.0",
     "react": "^16.8.6",
     "react-device-detect": "^2.2.3",
     "react-dom": "^16.8.6",

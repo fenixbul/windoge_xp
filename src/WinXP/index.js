@@ -248,6 +248,8 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings.Paint });
     else if (o === 'Pinball')
       dispatch({ type: ADD_APP, payload: appSettings.Pinball });
+    else if (o === 'Solitaire')
+      dispatch({ type: ADD_APP, payload: appSettings.Solitaire });
     else if (o === 'Log Off')
       dispatch({ type: POWER_OFF, payload: POWER_STATE.LOG_OFF });
     else if (o === 'Turn Off Computer')

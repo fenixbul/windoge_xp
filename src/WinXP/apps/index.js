@@ -20,19 +20,30 @@ import ICPCoinsIcon from 'assets/customIcons/ICPCoinsIcon.png';
 import ICPTokensIcon from 'assets/customIcons/ICPTokensIcon.png';
 import puzzleExpressIcon from 'assets/customIcons/puzzleExpressIcon.png';
 import Boxhead2PlayIcon from 'assets/customIcons/Boxhead2PlayIcon.png';
+import quake3Arena from 'assets/customIcons/quake3Arena.png';
 import Pinball3dIcon from 'assets/customIcons/Pinball3dIcon.png';
+import solitaireIcon from 'assets/customIcons/solitaireIcon.png';
 import windogeIcon from 'assets/customIcons/windogeIcon.png';
 import ghostIcon from 'assets/customIcons/ghostIcon.png';
 import exeIcon from 'assets/customIcons/exe.jpg';
 import taggrIcon from 'assets/customIcons/taggrIcon.png';
+import bitomniIcon from 'assets/customIcons/bitomniIcon.png';
+import ND64Icon from 'assets/customIcons/ND64Icon.png';
 import openChatIcon from 'assets/customIcons/openChatIcon.svg';
 import twitterIcon from 'assets/customIcons/twitterIcon.png';
+import trumpForceIcon from 'assets/customIcons/trumpForce.jpeg';
 import ICPCoins from './ICPCoins';
 import ICPTokens from './ICPTokens';
 import PuzzleExpress from './PuzzleExpress';
 import Pinball from './Pinball';
+import Solitaire from './Solitaire';
 import Boxhead from './Boxhead';
 import Taggr from './Taggr';
+import Quake3 from './Quake3';
+import Bitomni from './Bitomni';
+import TrumpForce from './TrumpForce';
+import RetroEmulator from './RetroEmulator';
+import Nintendoge64 from './Nintendoge64';
 
 const gen = () => {
   let id = -1;
@@ -151,6 +162,13 @@ defaultIconState.push(
     component: InternetExplorer,
     isFocus: false,
   },
+  // {
+  //   id: 30,
+  //   icon: ie,
+  //   title: 'RetroEmulator',
+  //   component: RetroEmulator,
+  //   isFocus: false,
+  // },
   {
     id: 4,
     icon: notepadLarge,
@@ -166,10 +184,17 @@ defaultIconState.push(
     isFocus: false,
   },
   {
-    id: 6,
-    icon: Pinball3dIcon,
-    title: 'Pinball',
-    component: Pinball,
+    id: 19,
+    icon: quake3Arena,
+    title: 'Quake 3 Arena',
+    component: Quake3,
+    isFocus: false,
+  },
+  {
+    id: 21,
+    icon: trumpForceIcon,
+    title: 'Trump Force',
+    component: TrumpForce,
     isFocus: false,
   },
   {
@@ -180,11 +205,11 @@ defaultIconState.push(
     isFocus: false,
   },
   {
-    id: 8,
-    icon: windogeIcon,
-    title: 'Buy XP',
+    id: 6,
+    icon: Pinball3dIcon,
+    title: 'Pinball',
+    component: Pinball,
     isFocus: false,
-    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=wqihv-qyaaa-aaaak-afjoa-cai"
   },
   {
     id: 9,
@@ -208,6 +233,20 @@ defaultIconState.push(
     component: Taggr
   },
   {
+    id: 20,
+    icon: bitomniIcon,
+    title: 'Bitomni',
+    isFocus: false,
+    component: Bitomni
+  },
+  {
+    id: 8,
+    icon: windogeIcon,
+    title: 'Buy XP',
+    isFocus: false,
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=wqihv-qyaaa-aaaak-afjoa-cai"
+  },
+  {
     id: 12,
     icon: ghostIcon,
     title: 'Buy GHOST',
@@ -215,12 +254,19 @@ defaultIconState.push(
     link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=4c4fd-caaaa-aaaaq-aaa3a-cai"
   },
   {
-    id: 13,
-    icon: ICPTokensIcon,
-    title: 'ICP Tokens',
-    component: ICPTokens,
+    id: 15,
+    icon: exeIcon,
+    title: 'Buy EXE',
     isFocus: false,
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=rh2pm-ryaaa-aaaan-qeniq-cai"
   },
+  // {
+  //   id: 13,
+  //   icon: ICPTokensIcon,
+  //   title: 'ICP Tokens',
+  //   component: ICPTokens,
+  //   isFocus: false,
+  // },
   {
     id: 14,
     icon: twitterIcon,
@@ -229,11 +275,11 @@ defaultIconState.push(
     link: "https://twitter.com/_WindogeXP"
   },
   {
-    id: 15,
-    icon: exeIcon,
-    title: 'Buy EXE',
+    id: 31,
+    icon: ND64Icon,
+    title: 'Nintendoge64',
+    component: Nintendoge64,
     isFocus: false,
-    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=rh2pm-ryaaa-aaaan-qeniq-cai"
   },
 );
 
@@ -243,7 +289,7 @@ const pinballIndex = defaultIconState.findIndex(item => item.title === 'Pinball'
 // If window width is greater than or equal to 800 pixels, insert "PuzzleExpress" after "Pinball"
 if (window.innerWidth >= 800 && pinballIndex !== -1) {
   defaultIconState.splice(pinballIndex + 1, 0, {
-    id: -1,
+    id: 17,
     icon: Boxhead2PlayIcon,
     title: 'Boxhead 2Play',
     component: Boxhead,
@@ -255,6 +301,14 @@ if (window.innerWidth >= 800 && pinballIndex !== -1) {
     icon: puzzleExpressIcon,
     title: 'PuzzleExpress',
     component: PuzzleExpress,
+    isFocus: false,
+  });
+
+  defaultIconState.splice(pinballIndex + 1, 0, {
+    id: 18,
+    icon: solitaireIcon,
+    title: 'Solitaire',
+    component: Solitaire,
     isFocus: false,
   });
 }
@@ -281,6 +335,25 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: true,
   },
+  // 'RetroEmulator': {
+  //   header: {
+  //     icon: iePaper,
+  //     title: 'RetroEmulator',
+  //   },
+  //   component: RetroEmulator,
+  //   defaultSize: {
+  //     width: 640,
+  //     height: 480,
+  //   },
+  //   defaultOffset: {
+  //     x: document.body.clientWidth / 2 - 320,
+  //     y: 30,
+  //   },
+  //   resizable: true,
+  //   minimized: false,
+  //   maximized: window.innerWidth < 700,
+  //   multiInstance: true,
+  // },
   Minesweeper: {
     header: {
       icon: mine,
@@ -359,25 +432,25 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
-  'ICP Tokens': {
-    header: {
-      icon: ICPTokensIcon,
-      title: 'ICP Tokens',
-    },
-    component: ICPTokens,
-    defaultSize: {
-      width: 900,
-      height: 700,
-    },
-    defaultOffset: {
-      x: document.body.clientWidth / 2 - 450,
-      y: 50,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 1000 || window.innerHeight < 800,
-    multiInstance: false,
-  },
+  // 'ICP Tokens': {
+  //   header: {
+  //     icon: ICPTokensIcon,
+  //     title: 'ICP Tokens',
+  //   },
+  //   component: ICPTokens,
+  //   defaultSize: {
+  //     width: 900,
+  //     height: 700,
+  //   },
+  //   defaultOffset: {
+  //     x: document.body.clientWidth / 2 - 450,
+  //     y: 50,
+  //   },
+  //   resizable: true,
+  //   minimized: false,
+  //   maximized: window.innerWidth < 1000 || window.innerHeight < 800,
+  //   multiInstance: false,
+  // },
   'Puzzle Express': {
     header: {
       icon: puzzleExpressIcon,
@@ -435,12 +508,126 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
+  Solitaire: {
+    header: {
+      icon: solitaireIcon,
+      title: 'Solitaire',
+    },
+    component: Solitaire,
+    defaultSize: {
+      width: 670,
+      height: 493,
+    },
+    defaultOffset: {
+      x: document.body.clientWidth / 2 - 335,
+      y: 50,
+    },
+    resizable: false,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
   Taggr: {
     header: {
       icon: taggrIcon,
       title: 'TAGGR',
     },
     component: Taggr,
+    defaultSize: {
+      width: document.body.clientWidth / 2,
+      height: 600,
+    },
+    defaultOffset: {
+      x: 0,
+      y: 0,
+    },
+    resizable: !(window.innerWidth < 800),
+    minimized: false,
+    maximized: true,
+    multiInstance: false,
+  },
+  Taggr: {
+    header: {
+      icon: taggrIcon,
+      title: 'TAGGR',
+    },
+    component: Taggr,
+    defaultSize: {
+      width: document.body.clientWidth / 2,
+      height: 600,
+    },
+    defaultOffset: {
+      x: 0,
+      y: 0,
+    },
+    resizable: !(window.innerWidth < 800),
+    minimized: false,
+    maximized: true,
+    multiInstance: false,
+  },
+  Bitomni: {
+    header: {
+      icon: bitomniIcon,
+      title: 'Bitomni',
+    },
+    component: Bitomni,
+    defaultSize: {
+      width: 1024,
+      height: 768,
+    },
+    defaultOffset: {
+      x: document.body.clientWidth / 2 - 512,
+      y: 50,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 1024,
+    multiInstance: false,
+  },
+  Nintendoge64: {
+    header: {
+      icon: ND64Icon,
+      title: 'Nintendoge64',
+    },
+    component: Nintendoge64,
+    defaultSize: {
+      width: 1024,
+      height: 768,
+    },
+    defaultOffset: {
+      x: window.innerWidth < 1200 ? 0 :document.body.clientWidth - 1050,
+      y: window.innerWidth < 1200 ? 0 : 20
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 1200,
+    multiInstance: false,
+  },
+  TrumpForce: {
+    header: {
+      icon: trumpForceIcon,
+      title: 'Trump Force',
+    },
+    component: TrumpForce,
+    defaultSize: {
+      width: 1024,
+      height: 768,
+    },
+    defaultOffset: {
+      x: document.body.clientWidth / 2 - 512,
+      y: 50,
+    },
+    resizable: false,
+    minimized: false,
+    maximized: true,
+    multiInstance: false,
+  },
+  Quake3: {
+    header: {
+      icon: quake3Arena,
+      title: 'Quake 3 Arena',
+    },
+    component: Quake3,
     defaultSize: {
       width: document.body.clientWidth / 2,
       height: 600,
