@@ -26,6 +26,7 @@ import solitaireIcon from 'assets/customIcons/solitaireIcon.png';
 import windogeIcon from 'assets/customIcons/windogeIcon.png';
 import ghostIcon from 'assets/customIcons/ghostIcon.png';
 import exeIcon from 'assets/customIcons/exe.jpg';
+import winChatIcon from 'assets/customIcons/WinChat.png';
 import taggrIcon from 'assets/customIcons/taggrIcon.png';
 import bitomniIcon from 'assets/customIcons/bitomniIcon.png';
 import ND64Icon from 'assets/customIcons/ND64Icon.png';
@@ -44,6 +45,8 @@ import Bitomni from './Bitomni';
 import TrumpForce from './TrumpForce';
 import RetroEmulator from './RetroEmulator';
 import Nintendoge64 from './Nintendoge64';
+import Folder from './MyComputer/folder';
+import WinChat from './WinChat';
 
 const gen = () => {
   let id = -1;
@@ -55,46 +58,6 @@ const gen = () => {
 const genId = gen();
 const genIndex = gen();
 export const defaultAppState = [
-  // {
-  //   component: InternetExplorer,
-  //   header: {
-  //     title: 'Internet Explorer',
-  //     icon: iePaper,
-  //   },
-  //   defaultSize: {
-  //     width: 700,
-  //     height: 500,
-  //   },
-  //   defaultOffset: {
-  //     x: 130,
-  //     y: 20,
-  //   },
-  //   resizable: true,
-  //   minimized: false,
-  //   maximized: window.innerWidth < 800,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
-  // {
-  //   component: Minesweeper,
-  //   header: {
-  //     title: 'Minesweeper',
-  //     icon: mine,
-  //   },
-  //   defaultSize: {
-  //     width: 0,
-  //     height: 0,
-  //   },
-  //   defaultOffset: {
-  //     x: window.innerWidth < 800 ? 130 : 200,
-  //     y: window.innerWidth < 800 ? 30 : 60,
-  //   },
-  //   resizable: false,
-  //   minimized: false,
-  //   maximized: false,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
   {
     component: Winamp,
     header: {
@@ -115,27 +78,13 @@ export const defaultAppState = [
     maximized: false,
     id: genId(),
     zIndex: genIndex(),
-  },
-  // {
-  //   component: MyComputer,
-  //   header: {
-  //     title: 'My Computer',
-  //     icon: computer,
-  //   },
-  //   defaultSize: {
-  //     width: 660,
-  //     height: 500,
-  //   },
-  //   defaultOffset: {
-  //     x: 250,
-  //     y: 40,
-  //   },
-  //   resizable: true,
-  //   minimized: false,
-  //   maximized: window.innerWidth < 800,
-  //   id: genId(),
-  //   zIndex: genIndex(),
-  // },
+  }
+];
+
+const folderItems = [
+  { label: 'Shared Documents', icon: computerLarge }, 
+  { label: 'Control Panel', icon: computerLarge }, 
+  { label: 'My Documents', icon: computerLarge }
 ];
 
 const defaultIconState = [];
@@ -144,8 +93,8 @@ defaultIconState.push(
   {
     id: 0,
     icon: computerLarge,
-    title: 'My Computer',
-    component: MyComputer,
+    title: 'Folder',
+    component: Folder,
     isFocus: false,
   },
   // {
@@ -281,6 +230,13 @@ defaultIconState.push(
     component: Nintendoge64,
     isFocus: false,
   },
+  {
+    id: 33,
+    icon: winChatIcon,
+    title: 'WinChat',
+    component: WinChat,
+    isFocus: false,
+  },
 );
 
 // Find the index of the "Pinball" item
@@ -394,12 +350,15 @@ export const appSettings = {
     maximized: false,
     multiInstance: true,
   },
-  'My Computer': {
+  Folder: {
     header: {
       icon: computer,
-      title: 'My Computer',
+      title: 'Folder',
     },
-    component: MyComputer,
+    component: Folder,
+    componentData: {
+      items: folderItems
+    },
     defaultSize: {
       width: 660,
       height: 500,
@@ -413,44 +372,25 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
-  'ICP Coins': {
+  'WinChat': {
     header: {
-      icon: ICPCoinsIcon,
-      title: 'ICP Coins',
+      icon: winChatIcon,
+      title: 'WinChat - #Rᴇᴛʀᴏ Sᴛᴀᴛɪᴏɴ',
     },
-    component: ICPCoins,
+    component: WinChat,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 640,
+      height: 480,
     },
     defaultOffset: {
-      x: 260,
+      x: document.body.clientWidth / 2 - 320,
       y: 50,
     },
     resizable: true,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: window.innerWidth < 800 || window.innerHeight < 800,
     multiInstance: false,
   },
-  // 'ICP Tokens': {
-  //   header: {
-  //     icon: ICPTokensIcon,
-  //     title: 'ICP Tokens',
-  //   },
-  //   component: ICPTokens,
-  //   defaultSize: {
-  //     width: 900,
-  //     height: 700,
-  //   },
-  //   defaultOffset: {
-  //     x: document.body.clientWidth / 2 - 450,
-  //     y: 50,
-  //   },
-  //   resizable: true,
-  //   minimized: false,
-  //   maximized: window.innerWidth < 1000 || window.innerHeight < 800,
-  //   multiInstance: false,
-  // },
   'Puzzle Express': {
     header: {
       icon: puzzleExpressIcon,

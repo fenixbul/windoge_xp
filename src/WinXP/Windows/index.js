@@ -45,6 +45,7 @@ const Window = memo(function({
   resizable,
   maximized,
   component,
+  componentData,
   zIndex,
   isFocus,
   className,
@@ -64,6 +65,14 @@ const Window = memo(function({
   function onDoubleClickHeader(e) {
     if (e.target !== dragRef.current) return;
     _onMouseUpMaximize();
+  }
+  function _componentData() {
+    console.log(componentData);
+    if(componentData) {
+      return componentData;
+    }
+
+    return {};
   }
   const dragRef = useRef(null);
   const ref = useRef(null);
@@ -133,6 +142,7 @@ const Window = memo(function({
         {component({
           onClose: _onMouseUpClose,
           onMinimize: _onMouseUpMinimize,
+          data:  _componentData(),
           isFocus,
           ...injectProps,
         })}

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { ContainerDiv } from './SharedStyles';
 
@@ -18,16 +17,12 @@ import network from 'assets/windowsIcons/693(16x16).png';
 import document from 'assets/windowsIcons/308(16x16).png';
 import folderSmall from 'assets/windowsIcons/318(16x16).png';
 import menu from 'assets/windowsIcons/358(32x32).png';
-import folder from 'assets/windowsIcons/318(48x48).png';
 import folderOpen from 'assets/windowsIcons/337(32x32).png';
-import disk from 'assets/windowsIcons/334(48x48).png';
-import cd from 'assets/windowsIcons/111(48x48).png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 import pullup from 'assets/windowsIcons/pullup.png';
-import mine from 'assets/minesweeper/mine-icon.png';
 import windows from 'assets/windowsIcons/windows.png';
 
-function MyComputer({ onClose }) {
+function Folder({ onClose, data }) {
   function onClickOptionItem(item) {
     switch (item) {
       case 'Close':
@@ -208,117 +203,27 @@ function MyComputer({ onClose }) {
                 </div>
               </div>
             </div>
-            {/* <div className="com__content__left__card">
-              <div className="com__content__left__card__header">
-                <div className="com__content__left__card__header__text">
-                  Details
-                </div>
-                <img
-                  src={pullup}
-                  alt=""
-                  className="com__content__left__card__header__img"
-                />
-              </div>
-              <div className="com__content__left__card__content">
-                <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src="https://cdn.iconscout.com/icon/free/png-256/medium-1425876-1205067.png"
-                    alt="control"
-                  />
-                  <a
-                    href="#"
-                    rel="noreferrer"
-                    className="com__content__left__card__text link"
-                  >
-                    ICP Swap
-                  </a>
-                </div>
-                <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={mine}
-                    alt="control"
-                  />
-                  <a
-                    href="#"
-                    rel="noreferrer"
-                    className="com__content__left__card__text link"
-                  >
-                    Minesweeper
-                  </a>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="com__content__right">
             <div className="com__content__right__card">
-              <div className="com__content__right__card__header">
+              {/* <div className="com__content__right__card__header">
                 Files Stored on This Computer
-              </div>
+              </div> */}
               <div className="com__content__right__card__content">
-                <div className="com__content__right__card__item">
-                  <img
-                    src={folder}
-                    alt="folder"
-                    className="com__content__right__card__img"
-                  />
-                  <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      Shared Documents
-                    </div>
-                  </div>
-                </div>
-                <div className="com__content__right__card__item">
-                  <img
-                    src={folder}
-                    alt="folder"
-                    className="com__content__right__card__img"
-                  />
-                  <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      User's Documents
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="com__content__right__card">
-              <div className="com__content__right__card__header">
-                Hard Disk Drives
-              </div>
-              <div className="com__content__right__card__content">
-                <div className="com__content__right__card__item">
-                  <img
-                    src={disk}
-                    alt="disk"
-                    className="com__content__right__card__img"
-                  />
-                  <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      Local Disk (C:)
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="com__content__right__card">
-              <div className="com__content__right__card__header">
-                Devices with Removable Storage
-              </div>
-              <div className="com__content__right__card__content">
-                <div className="com__content__right__card__item">
-                  <div className="com__content__right__card__img-container">
+                {data.items.map((item, index) => (
+                  <div className="com__content__right__card__item">
                     <img
-                      src={cd}
-                      alt="cd"
+                      src={item.icon}
+                      alt={item.label}
                       className="com__content__right__card__img"
                     />
+                    <div className="com__content__right__card__img-container">
+                      <div className="com__content__right__card__text">
+                        {item.label}
+                      </div>
+                    </div>
                   </div>
-                  <div className="com__content__right__card__text">
-                    CD Drive (D:)
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -328,4 +233,4 @@ function MyComputer({ onClose }) {
   );
 }
 
-export default MyComputer;
+export default Folder;
