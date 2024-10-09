@@ -9,6 +9,6 @@
       "dependencies": []
     }
   },
-  "dfx": "0.15.3",
+  "dfx": "0.23.0",
   "version": 1
 }

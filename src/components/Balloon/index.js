@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import risk from 'assets/windowsIcons/229(16x16).png';
+import shield from 'assets/windowsIcons/214(16x16).png';
 
 function Balloon({ startAfter = 3000, duration = 15000 }) {
   const [show, setShow] = useState(true);
@@ -25,16 +25,16 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
         <div className="balloon__container">
           <button onClick={() => setShow(false)} className="balloon__close" />
           <div className="balloon__header">
-            <img className="balloon__header__img" src={risk} alt="risk" />
+            <img className="balloon__header__img" src={shield} alt="shield" />
             <span className="balloon__header__text">
-              Your computer might be at risk
+              Your machine is under control
             </span>
           </div>
           <p className="balloon__text__first">
-            Antivirus software might not be installed
+            Antivirus software is not required
           </p>
           <p className="balloon__text__second">
-            Click this balloon to fix this problem.
+            Running 100% on-chain powered by ICP.
           </p>
         </div>
       </Div>
