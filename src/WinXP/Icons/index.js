@@ -103,16 +103,16 @@ function Icon({
 
 const IconsContainer = styled.div`
   position: absolute;
-  margin-top: 30px;
-  margin-left: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
   display: flex;
   flex-flow: column wrap;
   height: 100vh;
   padding-bottom: 40px;
 
   @media (max-width: 800px) {
-    margin-left: 20px;
-    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
   }
 `;
 

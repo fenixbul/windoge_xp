@@ -5,6 +5,7 @@
   "author": "Unknown",
   "homepage": "https://windogexp.net",
   "dependencies": {
+    "dompurify": "^3.1.7",
     "lodash.samplesize": "^4.2.0",
     "nostalgist": "^0.10.0",
     "react": "^16.8.6",

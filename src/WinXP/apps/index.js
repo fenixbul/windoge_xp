@@ -237,6 +237,13 @@ defaultIconState.push(
     component: WinChat,
     isFocus: false,
   },
+  {
+    id: 32,
+    icon: ICPTokensIcon,
+    title: 'ICP Tokens',
+    component: ICPTokens,
+    isFocus: false,
+  },
 );
 
 // Find the index of the "Pinball" item
@@ -384,6 +391,25 @@ export const appSettings = {
     },
     defaultOffset: {
       x: document.body.clientWidth / 2 - 320,
+      y: 50
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800 || window.innerHeight < 800,
+    multiInstance: false,
+  },
+  'ICP Tokens': {
+    header: {
+      icon: ICPTokensIcon,
+      title: 'ICP Tokens',
+    },
+    component: ICPTokens,
+    defaultSize: {
+      width: 900,
+      height: 700,
+    },
+    defaultOffset: {
+      x: document.body.clientWidth / 2 - 450,
       y: 50,
     },
     resizable: true,

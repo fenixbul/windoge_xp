@@ -12,7 +12,7 @@ function Quake3({ onClose, isFocus }) {
       }}
     >
       <iframe
-        src="https://lrusso.github.io/Quake3/Quake3.htm"
+        src="https://quake.windogexp.net/"
         frameBorder="0"
         title="paint"
         style={{

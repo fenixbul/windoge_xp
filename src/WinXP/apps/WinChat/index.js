@@ -1,94 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-
-const WinChatWrap = styled.div`
-  font-size: 16px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  background: #fefefe;
-  @font-face {
-    font-family: 'Fixedsys Excelsior 3.01';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Fixedsys Excelsior 3.01'), url('FSEX300.woff') format('woff');
-  }
-  .fixedsys-font {
-    font-family: 'Fixedsys Excelsior 3.01';
-    font-weight: normal;
-  }
-
-  .green-text {
-    color: #3d7f36;
-  }
-  .dark-purple {
-    color: #110c50;
-  }
-  .input-line {
-    border-top: 1px solid #ece9da;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 23px;
-  }
-
-  .input-line input {
-    border: none;
-    outline: none;
-    line-height: 23px;
-    height: 23px;
-    width: calc(100% - 100px);
-    padding-left: 2px;
-  }
-
-  .messages-wrap {
-    overflow-y: scroll;
-    position: absolute;
-    left: 0;
-    width: calc(100% - 125px);
-    height: calc(100% - 23px);
-    padding-bottom: 23px;
-    z-index: 6;
-    padding-right: 14px;
-  }
-
-  .users-wrap {
-    position: absolute;
-    right: 0;
-    height: calc(100% - 23px);
-    width: 137px;
-    overflow-y: scroll;
-    padding-left: 3px;
-    border-left: 12px solid #f0ede8;
-    z-index: 5;
-  }
-  /* Scrollbar styling for WebKit-based browsers (Chrome, Safari, Edge) */
-  .custom-scrollbar {
-    overflow: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: #c8d5f8 transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: orange;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #c8d5f8;
-    border-radius: 20px;
-    border: 3px solid transparent;
-  }
-`;
+import { WinChatWrap } from './WinChatStyles';
+import DOMPurify from 'dompurify';
 
 function WinChat({ onClose, onMinimize }) {
   const inputRef = useRef(null);
+  const messagesEndRef = useRef(null); // Ref to track the last message
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState(['TheFenix', 'RetroGamer', 'NeoDude']);
   const [inputValue, setInputValue] = useState(''); // Input state
@@ -96,6 +12,7 @@ function WinChat({ onClose, onMinimize }) {
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
+      inputRef.current.addEventListener('paste', handlePaste);
     }
 
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -116,7 +33,29 @@ function WinChat({ onClose, onMinimize }) {
         handleChatEvent(event);
       }, index * 1000); // Simulate a 1-second delay between events
     });
+
+    // Cleanup paste event listener on component unmount
+    return () => {
+      if (inputRef.current) {
+        inputRef.current.removeEventListener('paste', handlePaste);
+      }
+    };
   }, []);
+
+  useEffect(() => {
+    scrollToBottom(); // Scroll to bottom whenever messages update
+  }, [messages]);
+
+  const handlePaste = (event) => {
+    // Prevent the default paste behavior (which includes HTML formatting)
+    event.preventDefault();
+
+    // Get the plain text from the clipboard
+    const plainText = (event.clipboardData || window.clipboardData).getData('text');
+
+    // Insert the plain text at the current cursor position
+    document.execCommand('insertHTML', false, plainText);
+  };
 
   const handleChatEvent = (event) => {
     if (event.type === 'join') {
@@ -140,11 +79,25 @@ function WinChat({ onClose, onMinimize }) {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && inputValue.trim() !== '') {
+    let formattedInputValue = DOMPurify.sanitize(inputValue.trim());
+    if (event.key === 'Enter' && !event.shiftKey && formattedInputValue) {
+      event.preventDefault(); // Prevent Enter from adding new line
       const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const newMessage = `[${currentTime}] <TheFenix> ${inputValue}`;
       setMessages((prevMessages) => [...prevMessages, newMessage]); // Add the message
       setInputValue(''); // Clear input field
+      inputRef.current.innerText = ''; // Clear contenteditable div
+    }
+  };
+
+  const handleInputChange = () => {
+    const value = inputRef.current.textContent.replace(/<div>/g, '\n').replace(/<\/div>/g, '');
+    setInputValue(value); // Store the value with new lines (\n) for DB
+  };
+
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -160,10 +113,11 @@ function WinChat({ onClose, onMinimize }) {
               [10:00] * Topic is 'Classic Arcade Games and Their Influence on Modern Gaming'
             </div>
             {messages.map((message, index) => (
-              <div key={index} className={message.includes('Quits') ? 'dark-purple' : message.includes('*') ? 'green-text' : ""}>
-                {message}
+              <div key={index} className={message.includes('Quits') ? 'dark-purple' : message.includes('*') ? 'green-text' : message.includes('Fenix') ? "purple-text" : ""}>
+                {DOMPurify.sanitize(message)}
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
           <div className='users-wrap custom-scrollbar'>
             {users.map((user, index) => (
@@ -172,12 +126,17 @@ function WinChat({ onClose, onMinimize }) {
           </div>
         </div>
         <div className='input-line'>
-          <input 
-            type='text' 
-            ref={inputRef} 
-            value={inputValue} // Bind input value
-            onChange={(e) => setInputValue(e.target.value)} // Update state on change
-            onKeyPress={handleKeyPress} // Handle Enter key press
+          <div
+            ref={inputRef}
+            className={`input-div ${inputValue === '' ? 'empty' : ''}`}
+            contentEditable="true"
+            data-placeholder="Type your message..."
+            onKeyPress={handleKeyPress}
+            onInput={handleInputChange}
+            spellCheck="false"
+            data-gramm="false"
+            data-gramm_editor="false"
+            data-enable-grammarly="false"
           />
         </div>
       </div>

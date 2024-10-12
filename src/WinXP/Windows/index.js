@@ -67,7 +67,6 @@ const Window = memo(function({
     _onMouseUpMaximize();
   }
   function _componentData() {
-    console.log(componentData);
     if(componentData) {
       return componentData;
     }
