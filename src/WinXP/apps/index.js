@@ -184,13 +184,6 @@ defaultIconState.push(
     isFocus: false,
   },
   {
-    id: 19,
-    icon: quake3Arena,
-    title: 'Quake 3 Arena',
-    component: Quake3,
-    isFocus: false,
-  },
-  {
     id: 21,
     icon: trumpForceIcon,
     title: 'Trump Force',
@@ -286,6 +279,13 @@ defaultIconState.push(
     icon: ICPTokensIcon,
     title: 'ICP Tokens',
     component: ICPTokens,
+    isFocus: false,
+  },
+  {
+    id: 19,
+    icon: quake3Arena,
+    title: 'Quake 3 Arena',
+    component: Quake3,
     isFocus: false,
   },
 );
@@ -624,7 +624,7 @@ export const appSettings = {
       x: 0,
       y: 0,
     },
-    resizable: !(window.innerWidth < 800),
+    resizable: false,
     minimized: false,
     maximized: true,
     multiInstance: false,
