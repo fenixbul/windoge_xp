@@ -1,8 +1,21 @@
-import React from 'react';
-
-// add child div to capture mouse event when not focused
+import React, { useEffect, useRef } from 'react';
 
 function Quake3({ onClose, isFocus }) {
+  const iframeRef = useRef(null);
+
+  // Function to handle focus on the iframe
+  const handleFocusIframe = () => {
+    if (iframeRef.current) {
+      iframeRef.current.focus();
+    }
+  };
+
+  useEffect(() => {
+    if (isFocus) {
+      handleFocusIframe(); // Focus iframe if isFocus becomes true
+    }
+  }, [isFocus]);
+
   return (
     <div
       style={{
@@ -12,15 +25,17 @@ function Quake3({ onClose, isFocus }) {
       }}
     >
       <iframe
-        src="https://quake.windogexp.net/"
+        src="https://quake.windogexp.net" // Keep the iframe src constant, no reset needed
         frameBorder="0"
-        title="paint"
+        title="quake3"
+        ref={iframeRef}
         style={{
           display: 'block',
           width: '100%',
           height: '100%',
           backgroundColor: 'rgb(192,192,192)',
         }}
+        tabIndex={-1} // Ensure iframe can be focused programmatically
       />
       {!isFocus && (
         <div
@@ -30,7 +45,10 @@ function Quake3({ onClose, isFocus }) {
             position: 'absolute',
             left: 0,
             top: 0,
+            backgroundColor: 'transparent', // Keep it invisible but clickable
+            zIndex: 10, // Overlay on top of iframe
           }}
+          onClick={handleFocusIframe} // Focus iframe on click
         />
       )}
     </div>
