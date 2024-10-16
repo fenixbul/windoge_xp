@@ -25,7 +25,7 @@ function Quake3({ onClose, isFocus }) {
       }}
     >
       <iframe
-        src="https://quake.windogexp.net" // Keep the iframe src constant, no reset needed
+        src="https://quake.echoplay.win/" // Keep the iframe src constant, no reset needed
         frameBorder="0"
         title="quake3"
         ref={iframeRef}
