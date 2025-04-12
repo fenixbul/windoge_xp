@@ -70,7 +70,7 @@ export default styled(WindowDropDowns)`
     color: #fff;
   }
   .drop-down__label {
-    padding: 0 7px;
+    padding: 1px 7px;
     &:hover {
       background-color: #1660e8;
       color: #fff;

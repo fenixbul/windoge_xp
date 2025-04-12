@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import WinXP from './WinXP'; // Adjust the path if needed
 import Bootup from './Bootup';
+import { AuthProvider } from 'context/AuthContext';
+import { GeneralProvider } from 'context/GeneralContext';
 
 const App = () => {
   const [isBooted, setIsBooted] = useState(false);
@@ -18,11 +20,15 @@ const App = () => {
 
   return (
     <div style={{ width: '100%', height: '100%', position: 'fixed' }}>
-      {process.env.NODE_ENV === 'development' ? (
-        <WinXP />
-      ) : (
-        isBooted ? <WinXP /> : <Bootup onBootComplete={handleBootComplete} />
-      )}
+      <AuthProvider>
+        <GeneralProvider>
+          {process.env.NODE_ENV === 'development' ? (
+            <WinXP />
+          ) : (
+            isBooted ? <WinXP /> : <Bootup onBootComplete={handleBootComplete} />
+          )}
+        </GeneralProvider>
+      </AuthProvider>
     </div>
   );
 };

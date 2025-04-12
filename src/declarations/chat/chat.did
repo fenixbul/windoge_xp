@@ -1,0 +1,72 @@
+type Username = text;
+type UserId = nat;
+type User = 
+ record {
+   id: UserId;
+   pid: principal;
+   status: Status;
+   username: Username;
+ };
+type Time = int;
+type Status = 
+ record {
+   isOnline: bool;
+   lastActive: Time;
+ };
+type Result_6 = 
+ variant {
+   err: text;
+   ok: User;
+ };
+type Result_5 = 
+ variant {
+   err: text;
+   ok: vec record {
+             UserId;
+             Username;
+           };
+ };
+type Result_4 = 
+ variant {
+   err: text;
+   ok: opt User;
+ };
+type Result_3 = 
+ variant {
+   err: text;
+   ok: vec Message;
+ };
+type Result_2 = 
+ variant {
+   err: text;
+   ok: vec User;
+ };
+type Result_1 = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: bool;
+ };
+type Message = 
+ record {
+   content: text;
+   id: nat;
+   sender: UserId;
+   timestamp: Time;
+ };
+service : {
+  createUser: (text) -> (Result_6);
+  getActiveUsers: (opt User) -> (Result_5) query;
+  getCurrentUser: () -> (Result_4) query;
+  getLastMessageIndex: (nat) -> (Result_1) query;
+  getMessages: (nat, nat, nat) -> (Result_3) query;
+  getUsersByIds: (vec UserId) -> (Result_2) query;
+  isUsernameFree: (text) -> (bool) query;
+  leaveChannel: () -> (Result);
+  sendMessage: (text) -> (Result_1);
+  updateUserActivity: () -> (Result);
+}

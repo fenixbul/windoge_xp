@@ -1,5 +1,12 @@
 {
   "spa": {
     "ic": "ljshh-5iaaa-aaaal-aduza-cai"
+  },
+  "xp_index_canister": {
+    "ic": "7hwgv-uaaaa-aaaao-qjv7q-cai"
+  },
+  "internet-identity": {
+    "type": "pull",
+    "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
   }
 }

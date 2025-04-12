@@ -3,10 +3,7 @@
   <head>
     <meta name="og:title" content="Windoge XP - dApp" />
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#fff" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -17,6 +14,10 @@
       /* Style to hide the preloaded image */
       .preloadedImage {
           display: none;
+      }
+      html, body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-y: hidden; /* Prevent vertical scrolling if necessary */
       }
   </style>
   </head>

@@ -90,13 +90,13 @@ const folderItems = [
 const defaultIconState = [];
 
 defaultIconState.push(
-  {
-    id: 0,
-    icon: computerLarge,
-    title: 'Folder',
-    component: Folder,
-    isFocus: false,
-  },
+  // {
+  //   id: 0,
+  //   icon: computerLarge,
+  //   title: 'Folder',
+  //   component: Folder,
+  //   isFocus: false,
+  // },
   // {
   //   id: 1,
   //   icon: ICPCoinsIcon,
@@ -224,13 +224,6 @@ defaultIconState.push(
     isFocus: false,
   },
   {
-    id: 33,
-    icon: winChatIcon,
-    title: 'WinChat',
-    component: WinChat,
-    isFocus: false,
-  },
-  {
     id: 32,
     icon: ICPTokensIcon,
     title: 'ICP Tokens',
@@ -244,6 +237,20 @@ defaultIconState.push(
     component: Quake3,
     isFocus: false,
   },
+  {
+    id: 33,
+    icon: winChatIcon,
+    title: 'WinChat',
+    component: WinChat,
+    isFocus: false,
+  },
+  // {
+  //   id: 34,
+  //   icon: notepadLarge,
+  //   title: 'Token Tracker',
+  //   component: TokenTracker,
+  //   isFocus: false,
+  // },
 );
 
 // Find the index of the "Pinball" item
@@ -626,6 +633,25 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: true,
   },
+  // TokenTracker: {
+  //   header: {
+  //     icon: notepad,
+  //     title: 'Token Tracker',
+  //   },
+  //   component: TokenTracker,
+  //   defaultSize: {
+  //     width: 500,
+  //     height: 400,
+  //   },
+  //   defaultOffset: {
+  //     x: 270,
+  //     y: 60,
+  //   },
+  //   resizable: false,
+  //   minimized: false,
+  //   maximized: true || window.innerWidth < 800,
+  //   multiInstance: true,
+  // },
   Winamp: {
     header: {
       icon: winamp,

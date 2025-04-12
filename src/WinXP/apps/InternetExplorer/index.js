@@ -82,7 +82,6 @@ function InternetExplorer({ onClose }) {
             height={21}
           />
         </div>
-        <img className="ie__windows-logo" src={windows} alt="windows" />
       </section>
       <section className="ie__function_bar">
         <div

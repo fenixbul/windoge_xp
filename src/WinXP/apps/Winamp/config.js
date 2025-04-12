@@ -4,6 +4,15 @@ const album = 'Crypto Music';
 
 export const initialTracks = [
   {
+    metaData: {
+        artist: "Tendys",
+        title: "Song",
+        album,
+    },
+    url: "/music/tendy.mp3",
+    duration: 210.16
+  },
+  {
       metaData: {
           artist: "Cassius Cuvee",
           title: "HODL ICP",
@@ -58,7 +67,7 @@ export const initialTracks = [
     },
   },
   {
-    url: '/music/Toby + Decap - Welcome To The Blockchain.mp3',
+    url: '/music/Toby Decap - Welcome To The Blockchain.mp3',
     duration: 241.01,
     metaData: {
       title: 'Welcome To The Blockchain',
