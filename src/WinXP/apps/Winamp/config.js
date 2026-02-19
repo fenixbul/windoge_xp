@@ -85,6 +85,15 @@ export const initialTracks = [
     },
   },
   {
+    metaData: {
+        artist: "Tendys",
+        title: "Song",
+        album,
+    },
+    url: "/music/tendy.mp3",
+    duration: 210.16
+  },
+  {
     url: '/music/The Prodigy - Smack My Bitch Up.mp3',
     duration: 343.09,
     metaData: {

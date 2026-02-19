@@ -26,9 +26,11 @@ import solitaireIcon from 'assets/customIcons/solitaireIcon.png';
 import windogeIcon from 'assets/customIcons/windogeIcon.png';
 import ghostIcon from 'assets/customIcons/ghostIcon.png';
 import exeIcon from 'assets/customIcons/exe.jpg';
+import NAKIcon from 'assets/customIcons/NAKIcon.jpg';
 import taggrIcon from 'assets/customIcons/taggrIcon.png';
 import bitomniIcon from 'assets/customIcons/bitomniIcon.png';
 import ND64Icon from 'assets/customIcons/ND64Icon.png';
+import partyIcon from 'assets/customIcons/partyHats.png';
 import openChatIcon from 'assets/customIcons/openChatIcon.svg';
 import twitterIcon from 'assets/customIcons/twitterIcon.png';
 import trumpForceIcon from 'assets/customIcons/trumpForce.jpeg';
@@ -44,6 +46,7 @@ import Bitomni from './Bitomni';
 import TrumpForce from './TrumpForce';
 import RetroEmulator from './RetroEmulator';
 import Nintendoge64 from './Nintendoge64';
+import PartyHats from './PartyHats';
 
 const gen = () => {
   let id = -1;
@@ -225,13 +228,13 @@ defaultIconState.push(
     isFocus: false,
     component: Taggr
   },
-  {
-    id: 20,
-    icon: bitomniIcon,
-    title: 'Bitomni',
-    isFocus: false,
-    component: Bitomni
-  },
+  // {
+  //   id: 20,
+  //   icon: bitomniIcon,
+  //   title: 'Bitomni',
+  //   isFocus: false,
+  //   component: Bitomni
+  // },
   {
     id: 8,
     icon: windogeIcon,
@@ -252,6 +255,13 @@ defaultIconState.push(
     title: 'Buy EXE',
     isFocus: false,
     link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=rh2pm-ryaaa-aaaan-qeniq-cai"
+  },
+  {
+    id: 33,
+    icon: NAKIcon,
+    title: 'Buy NAK',
+    isFocus: false,
+    link: "https://app.icpswap.com/swap?input=ryjl3-tyaaa-aaaaa-aaaba-cai&output=eig2s-waaaa-aaaam-qbg5a-cai"
   },
   // {
   //   id: 13,
@@ -287,6 +297,13 @@ defaultIconState.push(
     title: 'Quake 3 Arena',
     component: Quake3,
     isFocus: false,
+  },
+  {
+    id: 34,
+    icon: partyIcon,
+    title: 'Partyhats',
+    isFocus: false,
+    component: PartyHats
   },
 );
 
@@ -553,19 +570,19 @@ export const appSettings = {
     maximized: true,
     multiInstance: false,
   },
-  Bitomni: {
+  PartyHats: {
     header: {
-      icon: bitomniIcon,
-      title: 'Bitomni',
+      icon: partyIcon,
+      title: 'Partyhats',
     },
-    component: Bitomni,
+    component: PartyHats,
     defaultSize: {
       width: 1024,
-      height: 768,
+      height: 720,
     },
     defaultOffset: {
       x: document.body.clientWidth / 2 - 512,
-      y: 50,
+      y: 20,
     },
     resizable: true,
     minimized: false,

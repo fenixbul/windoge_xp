@@ -5,25 +5,29 @@ import { WindowDropDowns } from 'components';
 import dropDownData from './dropDownData';
 
 export default function Notepad({ onClose }) {
-  const [docText, setDocText] = useState(`Roadmap:
+  const [docText, setDocText] = useState(`🆁🅾🅰🅳🅼🅰🅿 🧭
 
-1. ICPSwap Launch: 27/01/2024 - Completed ✅
-2. ICPSwap Listing - Completed ✅
-3. PLUG Listing: Completed ✅
-4. Website Fully Onchain: Completed ✅
-4. Coingecko Listing: Pending
-5. Coinmarketcap Listing: Pending
-6. Openchat Integration: To Be Completed
+✅ 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞𝐝 𝐌𝐢𝐥𝐞𝐬𝐭𝐨𝐧𝐞𝐬
+1. ICPSwap Launch – 27/01/2024 ✅
+2. ICPSwap Listing ✅
+3. PLUG Listing ✅
+4. Website Fully Onchain ✅
+5. SwapRunner Integration ✅
 
-Tokenomics:
+🚀 𝐔𝐩𝐜𝐨𝐦𝐢𝐧𝐠 𝐌𝐢𝐥𝐞𝐬𝐭𝐨𝐧𝐞𝐬:
+1. SocialFi Chat dApp – Engage and connect within the ecosystem
+2. User Personal Account – Profile, stats, and customizable settings
+3. Internet Identity & Wallet Integration – Seamless, secure login & transactions
+4. Play-to-Earn $XP Mechanism – Reward users for active participation
 
+𝐓𝐨𝐤𝐞𝐧𝐨𝐦𝐢𝐜𝐬:
 - Initial Liquidity - 76.2%
 - Website Development & Running Costs - 6.9%
 - Social Media Management and Mods - 3.1%
 - Giveaways And Promotion - 6.9%
 - Team Members - 6.9%
   `);
-  const [wordWrap, setWordWrap] = useState(false);
+  const [wordWrap, setWordWrap] = useState(true);
 
   function onClickOptionItem(item) {
     switch (item) {
